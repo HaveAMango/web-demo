@@ -1,0 +1,24 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--Simple GET form (no object)-->
+<form th:action="@{/books/search}" method="get">
+    <input type="text" name="searchTitle" id="searchTitle" th:value="${searchTitle}"/>
+    <input type="submit" value="Search"/>
+</form>
+
+<!--Java : model.addAttribute("book", requestedBook);-->
+<form action="#"
+      th:action="@{/books/update/{id}(id=${book.id})}"
+      th:object="${book}" method="post">
+    <div class="row">
+        <div class="form-group col-md-8">
+            <label for="title" class="col-form-label">Title</label>
+            <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="Title">
+        </div>
+
+        <div class="form-group col-md-8">
+            <input type="submit" class="btn btn-primary" value="Update Book">
+        </div>
+    </div>
+</form>
+</html>

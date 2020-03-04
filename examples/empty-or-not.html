@@ -1,0 +1,6 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div th:if="${not #lists.isEmpty(books)}"></div>
+    <div th:unless="${not #lists.isEmpty(books)}"></div>
+
+</html>

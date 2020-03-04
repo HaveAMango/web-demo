@@ -1,0 +1,7 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <tr th:each="book: ${books}">
+        <td th:text="${book.title}"/>
+    </tr>
+
+</html>
