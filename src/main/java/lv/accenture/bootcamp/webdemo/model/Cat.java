@@ -1,13 +1,35 @@
 package lv.accenture.bootcamp.webdemo.model;
 
-public class Cat {
+import java.io.Serializable;
+
+public class Cat implements Serializable {
 
 	private Long id;
 	private String nickname;
+	private int age;
+	private String image;
 
-	public Cat(Long id, String nickname) {
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public Cat(Long id, String nickname, int age, String image) {
 		this.id = id;
 		this.nickname = nickname;
+		this.age = age;
+		this.image = image;
 	}
 
 	public Cat() {
