@@ -62,13 +62,7 @@ public class CatRepository {
 	}
 
 	public void delete(Long id) {
-		for (int i=0; i<cats.size(); i++) {
-			if (cats.get(i).getId().equals(id)) {
-				cats.remove(i);
-
-				// TODO Auto-generated method stub
-
-			}
-		}
+		Cat catById = findById(id);
+		cats.remove(catById);
 	}
 }
