@@ -1,3 +1,6 @@
 h1 {
     color: red;
 }
+#app-body h1{
+	font-size = 4rem;
+}

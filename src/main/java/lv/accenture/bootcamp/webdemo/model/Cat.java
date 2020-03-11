@@ -6,20 +6,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Cat implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
+	@Size(min = 2, max = 256)
 	private String nickname;
 	
-	private int age;
+	@NotNull
+	@PositiveOrZero(message = "Please enter something adequate")
+	private Integer age;
 	
+	@Size(min=10, max=2000)
 	private String image;
-
+	
 	public String getImage() {
 		return image;
 	}
@@ -28,15 +35,15 @@ public class Cat implements Serializable {
 		this.image = image;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
-	public Cat(Long id, String nickname, int age, String image) {
+	public Cat(Long id, String nickname, Integer age, String image) {
 		this.id = id;
 		this.nickname = nickname;
 		this.age = age;

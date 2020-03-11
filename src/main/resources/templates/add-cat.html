@@ -14,12 +14,19 @@
         <div class="form-group col-md-8">
             <label for="nickname" class="col-form-label">Nickname:</label>
             <input type="text" th:field="*{nickname}" class="form-control" id="nickname">
-            
+            <html lang="en" xmlns:th="http://www.thymeleaf.org">
+				<span th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}" class="text-danger"/>
+				<div></div>
             <label for="age" class="col-form-label">Age:</label>
             <input type="text" th:field="*{age}" class="form-control" id="age">
-            
+            <html lang="en" xmlns:th="http://www.thymeleaf.org">
+				<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"/>
+				<div></div>
             <label for="image" class="col-form-label">Image:</label>
             <input type="text" th:field="*{image}" class="form-control" id="image">
+            <html lang="en" xmlns:th="http://www.thymeleaf.org">
+				<span th:if="${#fields.hasErrors('image')}" th:errors="*{image}" class="text-danger"/>
+				<div></div>
         </div>
 
         <div class="form-group col-md-8">

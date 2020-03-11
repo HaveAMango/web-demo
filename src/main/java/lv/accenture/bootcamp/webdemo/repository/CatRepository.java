@@ -2,7 +2,9 @@ package lv.accenture.bootcamp.webdemo.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +12,9 @@ import lv.accenture.bootcamp.webdemo.model.Cat;
 
 @Repository
 public interface CatRepository extends CrudRepository<Cat, Long> {
-	List <Cat> findByNickname(String nickname);
+	
+	@Query("SELECT c FROM Cat c WHERE c.nickname LIKE %:nickname%")
+	List <Cat> findByNickname(@Param(value="nickname")String catName);
 	
 	
 	
